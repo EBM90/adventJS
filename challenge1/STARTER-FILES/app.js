@@ -6,6 +6,8 @@ let interval
 let digitMinutes = document.getElementById("digitMin")
 let digitSeconds = document.getElementById("digitSec")
 
+let circle = document.getElementsByClassName("ring")
+
 function startCountDown() {
     start = !start
     if(start){
@@ -28,6 +30,7 @@ function countDown() {
             }
         } else if(digitSeconds.value <= 0 && digitMinutes.value == 0) {
             digitSeconds.value = 0
+            //add red circle here
         } else {
             digitSeconds.value--
         }  
