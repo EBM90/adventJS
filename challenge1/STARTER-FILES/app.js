@@ -6,7 +6,18 @@ let interval
 let digitMinutes = document.getElementById("digitMin")
 let digitSeconds = document.getElementById("digitSec")
 
-let circle = document.getElementsByClassName("ring")
+let circle = document.getElementById("ring")
+
+function ending() {
+    // Using an if statement to check the class
+    if (circle.classList.contains('ending')) {
+      // The box that we clicked has a class of bad so let's remove it and add the good class
+      circle.classList.remove('ending');
+    } else {
+      // The user obviously can't follow instructions so let's alert them of what is supposed to happen next
+      circle.classList.add('ending');
+    }
+}
 
 function startCountDown() {
     start = !start
@@ -31,6 +42,8 @@ function countDown() {
         } else if(digitSeconds.value <= 0 && digitMinutes.value == 0) {
             digitSeconds.value = 0
             //add red circle here
+            ending()
+            clearInterval(interval)
         } else {
             digitSeconds.value--
         }  
