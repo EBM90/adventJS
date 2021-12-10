@@ -3,6 +3,7 @@ let start = false
 
 let interval
 
+let startAndStop = document.getElementById("startAndStop")
 let digitMinutes = document.getElementById("digitMin")
 let digitSeconds = document.getElementById("digitSec")
 
@@ -15,8 +16,10 @@ function startCountDown() {
       interval =  setInterval(() =>{
             countDown()
           },1000)
+      startAndStop.innerText = "stop"
     } else {
         clearInterval(interval)
+        startAndStop.innerText = "start"
     }
 }
 
@@ -30,10 +33,10 @@ function countDown() {
                 digitMinutes.value--
             }
         } else if(digitSeconds.value <= 0 && digitMinutes.value == 0) {
-            digitSeconds.value = 0
-            //add red circle here
             toggleCircleColor()
+            digitSeconds.value = 0
             clearInterval(interval)
+            alert("It's the final countdown!");
         } else {
             digitSeconds.value--
         }  
