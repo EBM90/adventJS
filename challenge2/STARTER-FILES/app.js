@@ -197,7 +197,6 @@ function removeOne (item) {
         selectedItems = selectedItems.filter( x =>  {
           return x.name !== item
         } )
-        console.log(selectedItems)
         showAllItems()
       } else {
         x.count--
@@ -206,6 +205,6 @@ function removeOne (item) {
   })
   updateStatus()
 
-}
+} 
 
 updateStatus()
